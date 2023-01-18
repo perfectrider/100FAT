@@ -23,7 +23,7 @@ def check_bracket(array):
             ok = False
             break
 
-    if ok and len(stack) == 0:
+    if ok and not stack:
         print('ok')
     else:
         print('brackets not ok')
