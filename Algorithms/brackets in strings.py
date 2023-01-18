@@ -1,19 +1,34 @@
 
-# Close bracket search function.
+# Closed Brackets Stack Analyzer
+def check_bracket(array):
+    stack = []
+    ok = True
 
-str1 = 'What are you thinking? (about it)'
-str2 = 'There are many vegetables (and fruits.'
-str3 = 'Hello!'
+    for i in array:
+        if i in '([{':
+            stack.append(i)
 
-def is_brackets(str):
-    if '(' in str:
-        index = str.find('(')
-        if ')' in str[index:]:
-            return 'Brackets are closed'
-        else:
-            return 'Brackets are not closed'
-    return 'There are no brackets'
+        elif i in ')]}':
+            if not stack:
+                ok = False
+                break
 
-print(is_brackets(str1))    # Brackets are closed
-print(is_brackets(str2))    # Brackets are not closed
-print(is_brackets(str3))    # There are no brackets
+            open_bracket = stack.pop()
+            if open_bracket == '(' and i == ')':
+                continue
+            if open_bracket == '[' and i == ']':
+                continue
+            if open_bracket == '{' and i == '}':
+                continue
+            ok = False
+            break
+
+    if ok and len(stack) == 0:
+        print('ok')
+    else:
+        print('brackets not ok')
+
+
+first = '({)}}}}'
+check_bracket(first)
+

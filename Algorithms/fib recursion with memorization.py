@@ -12,6 +12,6 @@ def fib_ind(index):
         cache.append(result)
     return result
 
-print(fib_ind(30))
+print(fib_ind(15))
 
 # This func is more slowly than first var.
