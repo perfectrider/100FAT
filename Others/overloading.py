@@ -23,3 +23,5 @@ h1 = Smt(3, 12)
 print(h1.sum(1))        # 1
 print(h1.sum(1, 3))     # 4
 print(h1.sum(1, 3, 4))  # 8
+
+# https://docs.python.org/3/library/functools.html#functools.singledispatch
