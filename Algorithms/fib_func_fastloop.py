@@ -5,7 +5,7 @@ def fib_fast_loop(index):
     a, b = 0, 1
 
     for i in range(index - 1):
-        a, b = b, a + b   # 987
+        a, b = b, a + b
 
         # a = b
         # b = a + b
