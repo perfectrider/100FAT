@@ -65,25 +65,25 @@ ll_interface.print()
 # --------------------------------------------------------
 # 2. Two-Linked List.
 
-class TLList:
-    class TLNode:
-        data_value = None
-        next_value = None
-        prev_value = None
-
-        def __init__(self, data_value, next_value=None, prev_value=None):
-            self.data_value = data_value
-            self.next_value = next_value
-            self.prev_value = prev_value
-
-    head = None
-    tail = None
-    length = 0
-
-    def add(self, data_value):
-        if not head:
-            self.head = TLList(data_value):
-            return data_value
+# class TLList:
+#     class TLNode:
+#         data_value = None
+#         next_value = None
+#         prev_value = None
+#
+#         def __init__(self, data_value, next_value=None, prev_value=None):
+#             self.data_value = data_value
+#             self.next_value = next_value
+#             self.prev_value = prev_value
+#
+#     head = None
+#     tail = None
+#     length = 0
+#
+#     def add(self, data_value):
+#         if not head:
+#             self.head = TLList(data_value):
+#             return data_value
 
 
 

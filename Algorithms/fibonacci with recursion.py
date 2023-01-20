@@ -8,6 +8,6 @@ def fib_ind(index):
     else:
         return fib_ind(index - 1) + fib_ind(index - 2)
 
-print(fib_ind(35))
+print(fib_ind(15))
 
 # Possibility to implement recursion with a local variable?
