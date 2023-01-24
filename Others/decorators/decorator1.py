@@ -6,7 +6,8 @@ def testtime(func):
         start = time.time()
         func(*args)
         endtime = time.time() - start
-        print(f'function time is %.2f sec.' % endtime)
+        # print(f'function time is %.2f sec.' % endtime)
+        print('function time is: ', endtime.__round__(2))
 
     return wrapper
 

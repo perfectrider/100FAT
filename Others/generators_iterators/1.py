@@ -48,6 +48,3 @@ print(next(w1))
 
 
 
-
-
-
