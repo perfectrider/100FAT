@@ -28,7 +28,7 @@ w2 = Word('Hello!')
 print(w1 > w2, w2 < w1)
 
 
-# 1. User list sequence.
+# 2. User list sequence.
 class FunctionalList:
     '''tail, init, last, drop, take additionals for list type'''
 
@@ -96,3 +96,63 @@ print(user_list.drop(2))    # [3, 4, 5]
 # ...etc
 
 
+# 3. __call__ method.
+class Point:
+    '''Point coordinates'''
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+
+    def __call__(self, x, y):
+        self.x = x
+        self.y = y
+
+p1 = Point(12, 3)
+
+p1(10, 5)
+print(p1.__dict__)  # {'x': 10, 'y': 5}
+
+
+# 4. Context manager methods
+class Closer:
+    '''Context manager for object close in auto mode'''
+
+    def __init__(self, obj):
+        self.obj = obj
+
+    def __enter__(self):
+        return self.obj # attaching to the active object of the with-block
+
+    def __exit__(self, exception_type, exception_val, trace):
+        try:
+           self.obj.close()
+        except AttributeError: # if object have not the close method
+           print('Not closable.')
+           return True # exception caught
+
+
+# 5. Descriptor for conversion meter to centimeter
+class Meter(object):
+    '''Meter descriptor'''
+    def __init__(self, value=0.0):
+        self.value = float(value)
+
+    def __get__(self, instance, owner):
+        return self.value
+
+    def __set__(self, instance, value):
+        self.value = float(value)
+
+class Centimeter(object):
+    '''Centimeter descriptor'''
+    def __get__(self, instance, owner):
+        return instance.meter * 100
+
+    def __set__(self, instance, value):
+        instance.meter = float(value) / 100
+
+class Measure(object):
+    '''Measurement value for meter and centimeter'''
+    meter = Meter()
+    centimeter = Centimeter()
+# ?
