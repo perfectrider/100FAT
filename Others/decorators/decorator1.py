@@ -3,10 +3,10 @@ import time
 def testtime(func):
 
     def wrapper(*args):
+        print(f'test time {func.__name__} start...')
         start = time.time()
         func(*args)
         endtime = time.time() - start
-        # print(f'function time is %.2f sec.' % endtime)
         print('function time is: ', endtime.__round__(2))
 
     return wrapper

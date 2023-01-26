@@ -1,3 +1,5 @@
+# 1. Generations object and func.
+
 a = (x for x in range(10))
 print(a)    # <generator object <genexpr> at 0x7f0b4cff6880>
 
@@ -46,5 +48,20 @@ w1 = word_iter(text1)
 print(next(w1))
 print(next(w1))
 
+
+# 2. Corutin
+
+def greeting():
+    to_greet = yield
+    print(to_greet)
+
+# hi1 = greeting()
+# print(next(hi1))
+
+hi1 = greeting()
+# hi1.send(None)  # This step is defined by documentation! Or:
+next(hi1)
+hi1.send('Hello!')
+print(next(hi1))    # Hello! -> Traceback StopIteration if send None-value to yield.
 
 
