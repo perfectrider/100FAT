@@ -61,7 +61,23 @@ def greeting():
 hi1 = greeting()
 # hi1.send(None)  # This step is defined by documentation! Or:
 next(hi1)
-hi1.send('Hello!')
-print(next(hi1))    # Hello! -> Traceback StopIteration if send None-value to yield.
+# hi1.send('Hello!')
+# print(next(hi1))    # Hello! -> Traceback StopIteration if send None-value to yield.
+
+# 3. Multy yield func:
+
+from time import time
+
+def gen():
+    yield 1
+    yield 2
+    yield 3
+
+a = gen()
+print(next(a))
+print(next(a))
+print(next(a))
+# next() func run code just to current yield. Next iter will be run only second func call, and next yield or code
+# after the first yield will run on the next iteration with next() func.
 
 
