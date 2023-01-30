@@ -28,6 +28,14 @@ a.send(None)  # if print - "Ready to accept message"
 class MyException(Exception):
     pass
 
+def corutine_init(func):
+    def wrapper(*args, **kwargs):
+        g = func(*args, **kwargs)
+        g.send(None)
+        return g
+    return wrapper
+
+@corutine_init
 def average():
     count = 0
     sum = 0
