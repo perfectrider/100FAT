@@ -41,17 +41,22 @@ def average():
     sum = 0
     average = None
 
+
     while True:
         try:
             x = yield average
         except StopIteration:
             print('Done')
+            break
         except MyException:
             print('MyException raised!')
+            break
         else:
             count += 1
             sum += x
             average = round(sum / count, 2)
+
+    return average
 
 # obj.send(3)
 # 3.0
@@ -61,3 +66,13 @@ def average():
 # obj.throw(StopIteration)
 # 'Done'
 # 4.0
+
+# after adding the break directive and return the average value:
+# >>> try:
+# ...     g.throw(StopIteration)
+# ... except StopIteration as e:
+# ...     print('Average', e.value)
+# ...
+# Done
+# Average 83.4
+
