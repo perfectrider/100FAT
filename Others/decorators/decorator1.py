@@ -2,10 +2,10 @@ import time
 
 def testtime(func):
 
-    def wrapper(*args):
+    def wrapper(*args, **kwargs):
         print(f'test time {func.__name__} start...')
         start = time.time()
-        func(*args)
+        func(*args, **kwargs)
         endtime = time.time() - start
         print('function time is: ', endtime.__round__(2))
 
@@ -20,6 +20,6 @@ def fib_fast_loop(index):
 
     return b
 
-fib_fast_loop(300000)   # function time is 1.53 sec.
-fib_fast_loop(400000)   # function time is 2.76 sec.
+# fib_fast_loop(300000)   # function time is 1.53 sec.
+# fib_fast_loop(400000)   # function time is 2.76 sec.
 

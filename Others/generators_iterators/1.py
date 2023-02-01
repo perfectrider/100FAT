@@ -81,3 +81,11 @@ print(next(a))
 # after the first yield will run on the next iteration with next() func.
 
 
+def gen_from():
+    yield from 'Hello!'
+
+g = gen_from()
+print(next(g))  # H
+print(next(g))  # e
+
+

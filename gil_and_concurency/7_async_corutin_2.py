@@ -104,7 +104,6 @@ def subgen3():
             print('current value: ', message)
 
 @corutine_init
-
 def delegator3(obj):
     # while True:
     #     try:
@@ -122,4 +121,28 @@ deleg_gen3 = delegator3(gen3)
 # current value:  Aaaarghhghg!!!
 # >>> deleg_gen3.throw(MyException)
 # MyException raised, last value:  Aaaarghhghg!!!
-# >>>
+
+# And all of this work with only one consctruction: "yield from "
+
+
+
+# 5. Retrun result from subgen:
+def subgen4():
+    while True:
+        try:
+            message = yield
+        except StopIteration:
+            break
+        else:
+            print('current value: ', message)
+
+    return 'Returned from subgen4()'
+
+@corutine_init
+def delegator4(obj):
+    result = yield from obj
+    print(result)
+
+gen4 = delegator4(subgen4())
+# >>> gen4.throw(StopIteration)
+# Returned from subgen4()
