@@ -3,13 +3,13 @@ from time import sleep
 from datetime import datetime
 
 def testtime(func):
-  def wrapper(*args):
-    print(f'test time {func.__name__} start...')
-    start_time = datetime.now()
-    func(*args)
-    print('function time start in: ', start_time)
+    def wrapper(*args):
+        print(f'test time {func.__name__} start...')
+        start_time = datetime.now()
+        func(*args)
+        print('function time start in: ', start_time)
 
-  return wrapper
+    return wrapper
 
 @testtime
 def first_func(num):
@@ -40,6 +40,3 @@ th2.join()
 test4 = first_func(1.2) # ...time start in:  2023-01-26 12:44:42.348236   - 4-й
 
 # several threads can work with one func in parallell!
-
-
-
