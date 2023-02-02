@@ -1,17 +1,18 @@
 import requests
+from time import time
 from Others.decorators.decorator1 import testtime
 
 # Example with testing downloading the image from my site in non-asynch and asynchronous modes.
 
 
 
-# 1. Non-asynch realization:
+# # 1. Non-asynch realization:
 # def get_file(url):
 #     r = requests.get(url)
 #     return r
 #
 # def write_file(response):
-#     filename = response.url.split('/')[-1]
+#     filename = 'file-{}.jpeg'.format(int(time() * 1000))
 #     with open(filename, 'wb') as file:  # write in binary
 #         file.write(response.content)    # .content method => open in binary
 #
@@ -25,6 +26,9 @@ from Others.decorators.decorator1 import testtime
 #
 # if __name__ =='__main__':
 #     main()
+# # test time main start...
+# # function time is:  3.09 - for 10 files
+
 
 
 
@@ -43,7 +47,6 @@ async def get_file(url, session):
         data = await response.read()    # return binary data
         write_file(data)
 
-# @testtime
 async def main():
     url = 'https://loremflickr.com/320/240'
     tasks = []
@@ -57,4 +60,4 @@ async def main():
 
 start_time = time()
 asyncio.run(main())
-print((time() - start_time))
+print((time() - start_time))    # 0.42720651626586914 for 10 files
