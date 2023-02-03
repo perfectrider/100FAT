@@ -22,4 +22,3 @@ def fib_fast_loop(index):
 
 # fib_fast_loop(300000)   # function time is 1.53 sec.
 # fib_fast_loop(400000)   # function time is 2.76 sec.
-
