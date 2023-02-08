@@ -30,6 +30,7 @@ def time_for_class_methods(cls):
 
 @time_for_class_methods
 class Stopper:
+
     def one_sec(self):
         time.sleep(1)
         return
@@ -47,3 +48,5 @@ first.two_sec()
 # function time is:  1.0
 # test time two_sec start...
 # function time is:  2.0
+
+#

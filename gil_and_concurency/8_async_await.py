@@ -4,7 +4,7 @@ import asyncio
 
 
 # in 3.4 python version init-n of coroutine has possible with decorator of coroutine:
-# @asyncio.coroutine  # isn't decorator with initialization. Only creation coroutine based on generators from func.
+# @asyncio.coroutine isn't decorator with initialization. Only creation coroutine based on generators from func.
 async def print_nums():
     num = 1
     while True:

@@ -7,23 +7,23 @@ count = 0
 
 def first_func(num):
     global count
-    lock.acquire()
+    # lock.acquire()
 
     while count <= 5:
         print(f'first func value = {count}')
         count += 1
         sleep(num)
-    lock.release()
+    # lock.release()
 
 def second_func(num):
     global count
-    lock.acquire()
+    # lock.acquire()
 
     while count <= 5:
         print(f'second func value = {count}')
         count += 1
         sleep(num)
-    lock.release()
+    # lock.release()
 
 
 

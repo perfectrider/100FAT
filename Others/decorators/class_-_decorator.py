@@ -56,16 +56,17 @@ print(*func(3, 12))
 
 # 3. class decorator 3 - with args:
 class MyDecorator2:
-    def __init__(self, name):
+    def __init__(self, name='Goodbye!'):
         print('init method:', name)
         self.name = name
 
-    def __call__(self, func):
-        def wrapper(x, y):
+    def __call__(self, func, *args, **kwargs):
+        def wrapper(*args, **kwargs):
             print('before wrapper')
-            func(x, y)
+            func(*args, **kwargs)
             print('after wrapper')
         return wrapper
+
 @MyDecorator2('Hi')
 def func2(a, b):
     print('Function: ', a, b)
@@ -75,3 +76,9 @@ func2(10, 25)
 # before wrapper
 # 10 25
 # after wrapper
+
+@MyDecorator2() # Если аргумент по умолчанию, вызывать декоратор с ()!
+def func3(a, b, c, d, str):
+    print(a, b, c, d, str)
+
+func3(5, 6, 7, 8, 'Hi')
